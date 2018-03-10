@@ -21,9 +21,9 @@ public class NetworkBattleManager {
 
     private  var socket:Socket;
     public  var connectionState:ConnectionState = ConnectionState.BATTLE;
-    public var main:Main;
+    public var main:Game;
 
-    public function NetworkBattleManager(mainIn:Main) {
+    public function NetworkBattleManager(mainIn:Game) {
         main = mainIn;
         ConnectionState.init();
         // укажите хост для создания подключения

@@ -2,6 +2,7 @@
  * Created by Александр on 03.05.2017.
  */
 package ru.megains.wod.network.packet.login {
+import ru.megains.wod.Game;
 import ru.megains.wod.network.packet.*;
 
 import flash.utils.ByteArray;
@@ -15,7 +16,7 @@ public class SPacketLoginSuccess extends Packet {
     public function SPacketLoginSuccess() {
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
         NetworkManager.connectionState = ConnectionState.PLAY
     }
 }

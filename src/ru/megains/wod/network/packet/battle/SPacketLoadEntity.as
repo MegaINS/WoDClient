@@ -5,6 +5,8 @@ package ru.megains.wod.network.packet.battle {
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 import ru.megains.wod.battle.EntityBattle;
 
@@ -44,7 +46,7 @@ public class SPacketLoadEntity  extends Packet{
         }
     }
 
-    override public function processPacket(handler:Main): void{
+    override public function processPacket(handler:Game): void{
         handler.battle.setTeam(team1,team2)
 
     }

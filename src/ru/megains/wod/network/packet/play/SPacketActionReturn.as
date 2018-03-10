@@ -6,6 +6,7 @@ import flash.utils.ByteArray;
 
 import ru.megains.wod.Action;
 import ru.megains.wod.BodySlot;
+import ru.megains.wod.Game;
 
 import ru.megains.wod.Main;
 import ru.megains.wod.Status;
@@ -31,7 +32,7 @@ public class SPacketActionReturn extends Packet{
 
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
         if(status = Status.success){
             switch (action){
 

@@ -7,6 +7,8 @@ import flash.text.TextField;
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 
 import ru.megains.wod.Location;
@@ -43,7 +45,7 @@ public class SPacketLocInfo extends Packet{
         }
     }
 
-    override public function processPacket(handler:Main): void{
+    override public function processPacket(handler:Game): void{
 
         handler.setLoc( new Location(nameLoc,transits,store,mobs));
     }

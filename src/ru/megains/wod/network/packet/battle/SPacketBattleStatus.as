@@ -4,6 +4,8 @@
 package ru.megains.wod.network.packet.battle {
 import flash.utils.ByteArray;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 
 import ru.megains.wod.network.packet.Packet;
@@ -19,7 +21,7 @@ public class SPacketBattleStatus extends Packet{
 
     }
 
-    override public function processPacket(handler:Main): void{
+    override public function processPacket(handler:Game): void{
         handler.battle.setStatus(status);
 
     }

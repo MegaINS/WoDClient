@@ -9,10 +9,10 @@ import flash.events.MouseEvent;
 
 public class ButtonExit extends Sprite{
 
-    var main:Main;
+    var main:Game;
     var target:Sprite;
 
-    public function ButtonExit(mainIn:Main,targetIn:Sprite) {
+    public function ButtonExit(mainIn:Game,targetIn:Sprite) {
         main =mainIn;
         target = targetIn;
         var img:Shape = new Shape();

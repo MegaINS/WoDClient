@@ -5,6 +5,8 @@ package ru.megains.wod.network.packet.play {
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 import ru.megains.wod.store.Store;
 import ru.megains.wod.item.Item;
@@ -47,7 +49,7 @@ public class SPacketStore extends Packet{
 
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
 
         handler.openStore( new Store(handler,idStore,nameStore,sections));
     }

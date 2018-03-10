@@ -5,6 +5,8 @@ package ru.megains.wod.network.packet.play {
 
 import flash.utils.ByteArray;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 
 import ru.megains.wod.network.packet.Packet;
@@ -29,7 +31,7 @@ public class SPacketPlayerInfo extends Packet{
         money = buf.readInt();
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
         handler.userInfo.id.text = id.toString();
         handler.userInfo.nick.text = nick;
         handler.userInfo.level.text = level.toString();

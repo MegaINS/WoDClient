@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="WoDClient">
     <configurations>
-      <configuration name="WoDClient" target-platform="Desktop" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/WoDClient">
+      <configuration name="WoDClient" target-platform="Desktop" pure-as="true" main-class="ru.megains.wod.Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/WoDClient">
         <dependencies target-player="11.1">
           <sdk name="Flash" />
         </dependencies>

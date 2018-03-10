@@ -2,6 +2,7 @@
  * Created by Александр on 02.05.2017.
  */
 package ru.megains.wod.network {
+import ru.megains.wod.Game;
 import ru.megains.wod.Main;
 import ru.megains.wod.network.packet.*;
 
@@ -20,9 +21,9 @@ public class NetworkManager {
 
     private static var socket:Socket;
     public static var connectionState:ConnectionState = ConnectionState.HANDSHAKING;
-    public var main:Main;
+    public var main:Game;
 
-    public function NetworkManager(mainIn:Main) {
+    public function NetworkManager(mainIn:Game) {
         main = mainIn;
         ConnectionState.init();
         // укажите хост для создания подключения
@@ -78,7 +79,7 @@ public class NetworkManager {
         trace('соединение установлено');
         sendPacket(new CHandshake(ConnectionState.LOGIN));
         connectionState = ConnectionState.LOGIN;
-        sendPacket(new CPacketLoginStart("test@mail.ru","1111"))
+        sendPacket(new CPacketLoginStart(Main.mail,Main.pass))
 
     }
     private function closeHandler(event:Event):void

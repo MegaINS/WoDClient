@@ -6,6 +6,7 @@ import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
 import ru.megains.wod.BodySlot;
+import ru.megains.wod.Game;
 
 import ru.megains.wod.Main;
 
@@ -45,7 +46,7 @@ public class SPacketBody extends Packet{
         }
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
 
 
         handler.player.bodyItems = items;

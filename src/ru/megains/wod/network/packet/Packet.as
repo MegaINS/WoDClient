@@ -5,6 +5,8 @@ package ru.megains.wod.network.packet {
 import flash.display.Sprite;
 import flash.utils.ByteArray;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 
 public class Packet extends Sprite {
@@ -21,7 +23,7 @@ public class Packet extends Sprite {
 
 
 
-    public function processPacket(handler: Main): void{
+    public function processPacket(handler: Game): void{
 
     }
 }

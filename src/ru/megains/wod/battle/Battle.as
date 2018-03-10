@@ -14,7 +14,7 @@ public class Battle extends Sprite {
 
 
     var battleId:int;
-    var main:Main;
+    var main:Game;
     var network:NetworkBattleManager;
     public var playerId:int;
     public var team:int;
@@ -33,7 +33,7 @@ public class Battle extends Sprite {
     var noTarget = new TextField();
     var dead = new TextField();
     var win = new TextField();
-    public function Battle(idIn:int, mainIn:Main) {
+    public function Battle(idIn:int, mainIn:Game) {
 
         battleId = idIn;
         main = mainIn;

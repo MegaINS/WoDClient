@@ -7,6 +7,7 @@ import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
 import ru.megains.wod.BodySlot;
+import ru.megains.wod.Game;
 
 import ru.megains.wod.Main;
 import ru.megains.wod.item.ItemAction;
@@ -39,7 +40,7 @@ public class SPacketInventory extends Packet{
         }
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
 
 
         handler.player.backpackItems = items;

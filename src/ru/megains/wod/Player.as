@@ -13,7 +13,7 @@ public class Player extends Sprite{
     public var backpackItems:Dictionary;
     public var bodyItems:Dictionary;
 
-    public function Player(main:Main) {
+    public function Player(main:Game) {
         var img = new Shape();
         img.graphics.lineStyle(1, 0xa3c6c0, 1);
         img.graphics.beginFill(0xa3c6c0,1);

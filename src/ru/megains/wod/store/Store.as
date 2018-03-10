@@ -12,6 +12,7 @@ import flash.utils.Dictionary;
 import ru.megains.wod.Action;
 
 import ru.megains.wod.ButtonExit;
+import ru.megains.wod.Game;
 
 import ru.megains.wod.Main;
 import ru.megains.wod.item.Item;
@@ -27,7 +28,7 @@ public class Store extends Sprite {
     var sections:Dictionary = new Dictionary();
     var currentSection;
 
-    public function Store(main:Main, idStore:int, nameStoreIn:String, itemsDic:Dictionary) {
+    public function Store(main:Game, idStore:int, nameStoreIn:String, itemsDic:Dictionary) {
         id = idStore;
         nameStore = nameStoreIn;
         var img2 = new Shape();

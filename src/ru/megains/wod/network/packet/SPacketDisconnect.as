@@ -5,6 +5,8 @@ package ru.megains.wod.network.packet {
 import flash.text.TextField;
 import flash.utils.ByteArray;
 
+import ru.megains.wod.Game;
+
 import ru.megains.wod.Main;
 
 public class SPacketDisconnect extends Packet {
@@ -19,7 +21,7 @@ public class SPacketDisconnect extends Packet {
 
     }
 
-    override public function processPacket(handler: Main): void{
+    override public function processPacket(handler: Game): void{
        var text:TextField = new TextField();
         text.text =msg;
         text.x =100;
