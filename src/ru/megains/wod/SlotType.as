@@ -4,25 +4,26 @@
 package ru.megains.wod {
 import flash.net.registerClassAlias;
 
-public class BodySlot {
+public class SlotType {
 
-    public static const head = new BodySlot(0,"head");
-    public static const gloves = new BodySlot(1,"gloves");
-    public static const leggings = new BodySlot(2,"leggings");
-    public static const boots = new BodySlot(3,"boots");
-    public static const hauberk  = new BodySlot(4,"hauberk");
-    public static const belt = new BodySlot(5,"belt");
-    public static const cuirass = new BodySlot(6,"cuirass");
-    public static const shoulders = new BodySlot(7,"shoulders");
-    public static const leftHand = new BodySlot(8,"leftHand");
-    public static const rightHand = new BodySlot(9,"rightHand");
-    public static const none = new BodySlot(10,"none");
-    public static const array = [head,gloves,leggings,boots,hauberk,belt,cuirass,shoulders,leftHand,rightHand,none];
+    public static const head = new SlotType(0,"head");
+    public static const gloves = new SlotType(1,"gloves");
+    public static const leggings = new SlotType(2,"leggings");
+    public static const boots = new SlotType(3,"boots");
+    public static const hauberk  = new SlotType(4,"hauberk");
+    public static const belt = new SlotType(5,"belt");
+    public static const cuirass = new SlotType(6,"cuirass");
+    public static const shoulders = new SlotType(7,"shoulders");
+    public static const leftHand = new SlotType(8,"leftHand");
+    public static const rightHand = new SlotType(9,"rightHand");
+    public static const elixir = new SlotType(10,"elixir");
+    public static const none = new SlotType(11,"none");
+    public static const array = [head,gloves,leggings,boots,hauberk,belt,cuirass,shoulders,leftHand,rightHand,elixir,none];
 
     public var id:int;
     public var name;
 
-    public function BodySlot(idIn:int,nameIn:String) {
+    public function SlotType(idIn:int,nameIn:String) {
 
         id = idIn;
         name=nameIn;

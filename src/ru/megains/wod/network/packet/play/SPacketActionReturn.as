@@ -5,10 +5,11 @@ package ru.megains.wod.network.packet.play {
 import flash.utils.ByteArray;
 
 import ru.megains.wod.Action;
-import ru.megains.wod.BodySlot;
+import ru.megains.wod.SlotType;
 import ru.megains.wod.Game;
 
 import ru.megains.wod.Main;
+import ru.megains.wod.SlotType;
 import ru.megains.wod.Status;
 import ru.megains.wod.item.ItemAction;
 
@@ -37,20 +38,22 @@ public class SPacketActionReturn extends Packet{
             switch (action){
 
                 case Action.TAKEOFF:
-                    var slot = BodySlot.getSlot(value);
+                    var slot = SlotType.getSlot(value);
                     var item = handler.player.bodyItems[slot];
+                    handler.player.removeChild(item);
 
-                    item.setItemAction(ItemAction.take);
                     delete handler.player.bodyItems[slot];
-                    handler.player.backpackItems[item.id] = item;
+
+                   // handler.player.backpackItems[item.id] = item;
                     handler.player.drawBodyItems();
-                    handler.player.drawBackpackItems();
+
+                  //  handler.player.drawBackpackItems();
                     break;
                 case Action.TAKE:
                     var item = handler.player.backpackItems[value];
                     var slot = item.slot;
                     item.setItemAction(ItemAction.takeOff);
-                    delete handler.player.backpackItems[item.id];
+                    handler.player.removeChil(item.id);
                     handler.player.bodyItems[slot] = item;
                     handler.player.drawBodyItems();
                     handler.player.drawBackpackItems();

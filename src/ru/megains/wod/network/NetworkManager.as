@@ -76,7 +76,7 @@ public class NetworkManager {
      */
     private function connectHandler(event:Event):void
     {
-        trace('соединение установлено');
+        trace('Connect sucsessful');
         sendPacket(new CHandshake(ConnectionState.LOGIN));
         connectionState = ConnectionState.LOGIN;
         sendPacket(new CPacketLoginStart(Main.mail,Main.pass))
@@ -84,14 +84,14 @@ public class NetworkManager {
     }
     private function closeHandler(event:Event):void
     {
-        trace('соединение потеряно');
+        trace('Connect lost');
     }
     /**
      * Обработчик получения данных от сервера
      */
     internal var currentPackSize:uint = 0;
     private function dataHandler(event:ProgressEvent):void {
-        trace('Получены новые данные');
+        trace('Received new data');
         while((currentPackSize == 0 && socket.bytesAvailable >= 4) ||
               (currentPackSize != 0 && socket.bytesAvailable >= currentPackSize)) {
 

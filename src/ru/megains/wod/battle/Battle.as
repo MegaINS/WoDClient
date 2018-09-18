@@ -15,7 +15,7 @@ public class Battle extends Sprite {
 
     var battleId:int;
     var main:Game;
-    var network:NetworkBattleManager;
+    public var network:NetworkBattleManager;
     public var playerId:int;
     public var team:int;
     public var teamTarget:int;

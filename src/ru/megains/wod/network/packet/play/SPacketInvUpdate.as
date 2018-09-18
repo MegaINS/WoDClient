@@ -5,9 +5,10 @@ package ru.megains.wod.network.packet.play {
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
-import ru.megains.wod.BodySlot;
+import ru.megains.wod.SlotType;
 import ru.megains.wod.Game;
 import ru.megains.wod.Main;
+import ru.megains.wod.SlotType;
 
 import ru.megains.wod.item.ItemAction;
 import ru.megains.wod.item.ItemUser;
@@ -36,30 +37,42 @@ public class SPacketInvUpdate extends Packet{
             var img:String = buf.readUTF();
             var amount:int = buf.readInt();
             var action:ItemAction = ItemAction.get(buf.readByte()) ;
-            var slotItem:BodySlot =BodySlot.getSlot(buf.readByte());
+            var slotItem:SlotType =SlotType.getSlot(buf.readByte());
             items[id] = new ItemUser(id,name,img,amount,action,slotItem);
         }
     }
 
     override public function processPacket(handler: Game): void{
 
-        switch (test){
+
+        switch (invType){
             case 0:
-                for(var id in   items){
-                    handler.player.backpackItems[id] =  items[id]
+                switch (test){
+                    case 0:
+                        for(var id in   items){
+                            handler.player.backpackItems[id] =  items[id]
+                        }
+                        break;
+                    case  1:
+                        for(var id in items){
+                            var itemB = handler.player.backpackItems[id] ;
+                            var item = items[id];
+                            itemB.amount = item.amount;
+                            itemB.amountText.text = item.amount;
+                        }
+                        break
                 }
+
+                handler.player.drawBackpackItems();
                 break;
-            case  1:
-                for(var id in items){
-                    var itemB = handler.player.backpackItems[id] ;
-                    var item = items[id];
-                    itemB.amount = item.amount;
-                    itemB.amountText.text = item.amount;
-                }
-                break
+            case 1:
+
+
+                break;
         }
 
-        handler.player.drawBackpackItems();
+
+
 
 
 

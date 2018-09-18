@@ -13,10 +13,10 @@ public class Action {
     public static const ATTACK:Action = new Action(6);
     public static const EXITINLOC:Action = new Action(7);
     public static const LOADOLAYERLOC:Action = new Action(8);
+    public static const USE:Action = new Action(9);
 
 
-
-    public static const array:Array = [MOVELOC,TAKEOFF,TAKE,DELETE,STORE,STOREBUY,ATTACK,EXITINLOC,LOADOLAYERLOC];
+    public static const array:Array = [MOVELOC,TAKEOFF,TAKE,DELETE,STORE,STOREBUY,ATTACK,EXITINLOC,LOADOLAYERLOC,USE];
     public var id:int;
     public function Action(idIn:int) {
         id = idIn;

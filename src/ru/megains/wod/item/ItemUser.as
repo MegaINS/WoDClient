@@ -8,9 +8,10 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.text.TextField;
 
-import ru.megains.wod.BodySlot;
+import ru.megains.wod.SlotType;
 
 import ru.megains.wod.ResourceLoader;
+import ru.megains.wod.SlotType;
 
 public class ItemUser extends Item{
 
@@ -22,7 +23,7 @@ public class ItemUser extends Item{
     public var slot;
     public var active = false;
 
-    public function ItemUser(idIn:int, nameIn:String, imgIn:String, amountIn:int, actionIn:ItemAction,slotIn:BodySlot) {
+    public function ItemUser(idIn:int, nameIn:String, imgIn:String, amountIn:int, actionIn:ItemAction,slotIn:SlotType) {
         super(idIn,nameIn,imgIn);
         amount=amountIn;
         action=actionIn;
@@ -47,7 +48,7 @@ public class ItemUser extends Item{
 
     public function overItem(event:Event):void{
         active = true;
-        trace("over"+event.target);
+      //  trace("over"+event.target);
         addChild(ItemAction.info);
 
         addChild(action);
@@ -61,7 +62,7 @@ public class ItemUser extends Item{
     }
     public function outItem(event:Event):void{
         active = false;
-        trace("out"+event.target);
+       // trace("out"+event.target);
 
         removeChild(ItemAction.info);
         removeChild(action);

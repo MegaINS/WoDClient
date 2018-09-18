@@ -25,6 +25,7 @@ public class SPacketStartBattle extends Packet{
     override public function processPacket(handler: Game): void{
         handler.startBattle(id)
 
+
     }
 }
 }

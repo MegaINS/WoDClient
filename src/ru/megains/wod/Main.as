@@ -5,6 +5,7 @@ import flash.display.Sprite;
 public class Main extends Sprite{
 
     var lastScreen:Screen;
+    public static var game:Game;
     public static var mail:String;
     public static var pass:String;
 
@@ -18,8 +19,10 @@ public class Main extends Sprite{
             removeChild(lastScreen);
         lastScreen = screen;
         addChild(lastScreen);
-        lastScreen.init()
-
+        lastScreen.init();
+        if(screen is Game){
+            game = Game(lastScreen)
+        }
     }
 }
 }

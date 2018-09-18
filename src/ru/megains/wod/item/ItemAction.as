@@ -8,6 +8,8 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 
 import ru.megains.wod.Action;
+import ru.megains.wod.Game;
+import ru.megains.wod.Main;
 
 import ru.megains.wod.network.NetworkManager;
 import ru.megains.wod.network.packet.play.CPacketAction;
@@ -67,6 +69,10 @@ public class ItemAction extends Sprite{
     public function click(event:Event):void{
         trace("click "+event.target.id + " "+event.target.parent.itemName);
         switch (id){
+            case 0:
+                trace("click use "+event.target.id + " "+event.target.parent.slot);
+              Main.game.battle.network.sendPacket(new CPacketAction(Action.USE,event.target.parent.id));
+                break;
             case 1:
                 trace("click take "+event.target.id + " "+event.target.parent.slot);
                 NetworkManager.sendPacket(new CPacketAction(Action.TAKE,event.target.parent.id));
@@ -74,12 +80,13 @@ public class ItemAction extends Sprite{
 
             case 5:
                 trace("click takeOff "+event.target.id + " "+event.target.parent.slot);
-                NetworkManager.sendPacket(new CPacketAction(Action.TAKEOFF,event.target.parent.slot.id));
+                NetworkManager.sendPacket(new CPacketAction(Action.TAKEOFF,event.target.parent.slot.id,event.target.parent.id));
                 break;
             case 4:
                 trace("click delete "+event.target.id + " "+event.target.parent.slot);
                 NetworkManager.sendPacket(new CPacketAction(Action.DELETE,event.target.parent.id));
                 break;
+
         }
 
     }

@@ -1,40 +1,30 @@
-/**
- * Created by Александр on 07.05.2017.
- */
 package ru.megains.wod.network.packet.play {
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
 
-import ru.megains.wod.SlotType;
 import ru.megains.wod.Game;
 
-import ru.megains.wod.Main;
 import ru.megains.wod.SlotType;
-
 import ru.megains.wod.item.ItemAction;
 import ru.megains.wod.item.ItemUser;
 
 import ru.megains.wod.network.packet.Packet;
 
-public class SPacketBody extends Packet{
-    public function SPacketBody() {
+public class SPacketSlotUpdate extends Packet{
+
+
+
+    public var slot:int;
+    public var item:ItemUser;
+    public function SPacketSlotUpdate() {
     }
-
-    public var items:Dictionary = new Dictionary();
-
-
 
     override public function readPacketData(buf:ByteArray): void{
 
-        var size = buf.readByte();
+        slot = buf.readInt();
+        var isItem = buf.readBoolean();
 
-        for(var i:int = 0;i<size; i++){
-            var slot = SlotType.getSlot(buf.readByte());
-
-
-
-
-
+        if(isItem){
             var id:int = buf.readInt();
             var name:String = buf.readUTF();
             var img:String = buf.readUTF();
@@ -43,15 +33,16 @@ public class SPacketBody extends Packet{
             var slotItem:SlotType =SlotType.getSlot(buf.readByte());
             var action:ItemAction = ItemAction.takeOff;
 
-            items[slot] = new ItemUser(id,name,img,amount,action,slotItem);
+            item = new ItemUser(id,name,img,amount,action,slotItem);
         }
     }
 
     override public function processPacket(handler: Game): void{
 
+       handler.slots.updateSlot(slot,item);
 
-        handler.player.bodyItems = items;
-        handler.player.drawBodyItems();
+      //  handler.player.bodyItems = items;
+        //handler.player.drawBodyItems();
 
 
     }

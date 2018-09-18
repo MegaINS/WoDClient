@@ -23,8 +23,8 @@ public class SPacketBattleEnd extends Packet{
     }
 
     override public function processPacket(handler:Game): void{
-        handler.battle.end(win);
 
+        handler.endBattle(win);
     }
 
 

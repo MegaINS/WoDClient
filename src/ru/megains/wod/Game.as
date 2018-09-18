@@ -27,7 +27,8 @@ public class Game extends Screen {
     public var battle:Battle;
     public var location:Sprite;
     public var playerList:PlayerList;
-
+    public var slots:Slots;
+    public var inBattle = false;
 
     public function Game() {
         networkManager = new NetworkManager(this);
@@ -35,7 +36,7 @@ public class Game extends Screen {
         player = new Player(this);
         buttonPlayer = new ButtonPlayer(this);
         playerList = new PlayerList(this);
-
+        slots = new Slots(this);
     }
 
 
@@ -46,9 +47,11 @@ public class Game extends Screen {
         buttonPlayer.x = 400;
         playerList.x = 900;
         playerList.y = 600;
+        slots.y =100;
         addChild(buttonPlayer);
         addChild(userInfo);
         addChild(playerList);
+        addChild(slots);
     }
 
     public function setLoc(locationIn:Location):void {
@@ -74,7 +77,14 @@ public class Game extends Screen {
         battle = new Battle(id,this);
         battle.x = 100;
         battle.y = 100;
+        inBattle = true;
+        slots.startBattle();
         addChild(battle);
+    }
+    public function endBattle(win:Boolean):void {
+        battle.end(win);
+        inBattle = false;
+        slots.endBattle();
     }
 }
 }

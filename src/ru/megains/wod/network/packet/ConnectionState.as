@@ -67,7 +67,8 @@ public class ConnectionState {
         PLAY.registerServerPacket(SPacketInvUpdate);
         PLAY.registerServerPacket(SPacketStartBattle);
         PLAY.registerServerPacket(SPacketPlayerLocation);
-
+        PLAY.registerServerPacket(SPacketSlots);
+        PLAY.registerServerPacket(SPacketSlotUpdate);
       // PLAY.registerClientPacket(CPacketAction);
 
       //  BATTLE.registerClientPacket(CPacketConnectBattle);
