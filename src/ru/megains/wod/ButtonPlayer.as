@@ -6,6 +6,7 @@ import flash.display.Shape;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.text.TextField;
 
 public class ButtonPlayer extends Sprite{
 
@@ -15,12 +16,17 @@ public class ButtonPlayer extends Sprite{
     public function ButtonPlayer(mainIn:Game):void {
         main = mainIn;
         var img = new Shape();
-        img.graphics.lineStyle(1, 0x942565, 1);
-        img.graphics.beginFill(0x942565,1);
+        img.graphics.lineStyle(1, 0xC57726, 1);
+        img.graphics.beginFill(0xC57726,1);
         img.graphics.drawRect(0, 0, 50, 50);
         img.graphics.endFill();
+        var text = new TextField();
+        text.text = "Рюкзак";
+        text.y = 15;
+        text.x = 4;
 
         addChild(img);
+        addChild(text);
         addEventListener(MouseEvent.CLICK, clickHandler );
 
     }

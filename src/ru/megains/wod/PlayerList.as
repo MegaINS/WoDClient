@@ -39,7 +39,7 @@ public class PlayerList extends Sprite{
         for (var id:* in playersIn) {
             if( players[id]!= null){
                 removeChild(players[id]);
-                players[id] = null;
+                delete players[id];
             }
         }
         var i = 0;
