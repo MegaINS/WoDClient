@@ -18,12 +18,12 @@ public class EntityBattle extends Sprite{
 
 
 
-    public function EntityBattle(idIn:int,nameIn:String,levelIn:int,hpIn:int,statusIn:int) {
+    public function EntityBattle(idIn:int,nameIn:String,levelIn:int,hpIn:int,hpMaxIn:int,statusIn:int) {
         id = idIn;
         nameEnt = nameIn;
         level = levelIn;
         hp = hpIn;
-        hpMax = hpIn;
+        hpMax = hpMaxIn;
         status = statusIn;
 
         entityName.text = nameEnt +"["+level+"]";

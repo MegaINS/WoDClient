@@ -4,45 +4,32 @@
 package ru.megains.wod {
 import flash.display.Shape;
 import flash.display.Sprite;
+import flash.net.drm.DRMPlaybackTimeWindow;
 import flash.text.TextField;
 
 public class PlayerInfo extends Sprite {
 
-    public var id:TextField = new TextField();
+
+    public var id:int;
     public var nick:TextField = new TextField();
     public var level:TextField = new TextField();
     public var exp:TextField = new TextField();
     public var money:TextField = new TextField();
 
-    public var id1:TextField = new TextField();
-    public var nick1:TextField = new TextField();
-    public var level1:TextField = new TextField();
-    public var exp1:TextField = new TextField();
-    public var money1:TextField = new TextField();
+    public var hpText:TextField = new TextField();
+
+
 
     public function PlayerInfo() {
-        id1.y = 10;
-        nick1.y = 25;
-        level1.y = 40;
-        exp1.y = 55;
-        money1.y = 70;
-        id1.text = "Id :";
-        nick1.text = "Name :";
-        level1.text = "Level :";
-        exp1.text = "Exp :";
-        money1.text = "Money :";
-
-        id.y = 10;
         nick.y = 25;
         level.y = 40;
         exp.y = 55;
         money.y = 70;
 
-        id.x = 30;
-        nick.x = 40;
-        level.x = 40;
-        exp.x = 40;
-        money.x = 50;
+
+        updateHp(0,0);
+        hpText.y = 20;
+        hpText.x = 150;
 
         var img = new Shape();
         img.graphics.lineStyle(1, 0x457510, 1);
@@ -51,16 +38,32 @@ public class PlayerInfo extends Sprite {
         img.graphics.endFill();
 
         addChild(img);
-        addChild(id1);
-        addChild(nick1);
-        addChild(level1);
-        addChild(exp1);
-        addChild(money1);
-        addChild(id);
+        addChild(hpText);
         addChild(nick);
         addChild(level);
         addChild(exp);
         addChild(money);
+
+    }
+    public function updateHp(hp:int,hpMax:int):void{
+        hpText.text = "HP "+hp+"/"+hpMax;
+    }
+
+
+    public function updateNick(nickIn:String):void{
+        nick.text = "Name :"+nickIn;
+    }
+
+    public function updateLevel(levelIn:int):void{
+        level.text = "Level :"+levelIn;
+    }
+
+    public function updateExp(expIn:int):void{
+        exp.text = "Exp :"+expIn;
+    }
+
+    public function updateMoney(moneyIn:int):void{
+        money.text = "Money :"+moneyIn;
     }
 }
 }

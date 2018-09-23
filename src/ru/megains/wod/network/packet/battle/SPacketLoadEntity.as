@@ -26,14 +26,16 @@ public class SPacketLoadEntity  extends Packet{
         var name:String;
         var level:int;
         var hp:int;
+        var hpMax:int;
         var status:int;
         for(i = 0;i<size;i++){
             id = buf.readInt();
             name =  buf.readUTF();
             level =  buf.readInt();
             hp = buf.readInt();
+            hpMax = buf.readInt();
             status =  buf.readInt();
-            team1[id]= new EntityBattle(id,name,level,hp,status)
+            team1[id]= new EntityBattle(id,name,level,hp,hpMax,status)
         }
         size = buf.readShort();
         for(i = 0;i<size;i++){
@@ -41,8 +43,9 @@ public class SPacketLoadEntity  extends Packet{
             name =  buf.readUTF();
             level =  buf.readInt();
             hp = buf.readInt();
+            hpMax = buf.readInt();
             status =  buf.readInt();
-            team2[id]= new EntityBattle(id,name,level,hp,status)
+            team2[id]= new EntityBattle(id,name,level,hp,hpMax,status)
         }
     }
 

@@ -61,6 +61,12 @@ public class SPacketInvUpdate extends Packet{
                             itemB.amountText.text = item.amount;
                         }
                         break
+                    case  3:
+                        for(var it in items){
+                            handler.player.removeChil(it) ;
+                            handler.player.drawBackpackItems();
+                        }
+                        break
                 }
 
                 handler.player.drawBackpackItems();

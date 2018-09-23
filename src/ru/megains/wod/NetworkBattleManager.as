@@ -82,7 +82,7 @@ public class NetworkBattleManager {
         trace('соединение установлено');
         sendPacket(new CHandshake(ConnectionState.BATTLE));
         connectionState = ConnectionState.BATTLE;
-        sendPacket(new CPacketConnectBattle(Number(main.userInfo.id.text)))
+        sendPacket(new CPacketConnectBattle(Number(main.userInfo.id)))
 
     }
     private function closeHandler(event:Event):void
