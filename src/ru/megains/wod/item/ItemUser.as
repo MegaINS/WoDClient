@@ -30,7 +30,7 @@ public class ItemUser extends Item{
         slot = slotIn;
 
 
-        if(amount>1){
+
             amountText =  new TextField();
             amountText.x = 2;
             amountText.y = 38;
@@ -39,8 +39,8 @@ public class ItemUser extends Item{
             amountText.backgroundColor = 0xFFFFFF;
             amountText.width = 23;
             amountText.height = 18;
-            addChild(amountText)
-        }
+            addChild(amountText);
+
 
         addEventListener(MouseEvent.ROLL_OVER, overItem);
         addEventListener(MouseEvent.ROLL_OUT, outItem);

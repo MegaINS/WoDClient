@@ -50,23 +50,25 @@ public class SPacketInvUpdate extends Packet{
                 switch (test){
                     case 0:
                         for(var id in   items){
-                            handler.player.backpackItems[id] =  items[id]
+                            handler.player.backpackItems[id] =  items[id];
                         }
                         break;
                     case  1:
                         for(var id in items){
-                            var itemB = handler.player.backpackItems[id] ;
+                            var itemB = handler.player.backpackItems[id];
                             var item = items[id];
                             itemB.amount = item.amount;
                             itemB.amountText.text = item.amount;
                         }
-                        break
+                        break;
                     case  3:
                         for(var it in items){
-                            handler.player.removeChil(it) ;
+
+                            handler.player.removeChil(it);
                             handler.player.drawBackpackItems();
                         }
-                        break
+                        break;
+
                 }
 
                 handler.player.drawBackpackItems();

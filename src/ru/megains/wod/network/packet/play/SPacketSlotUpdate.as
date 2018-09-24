@@ -14,14 +14,14 @@ public class SPacketSlotUpdate extends Packet{
 
 
 
-    public var slot:int;
+    public var slot:SlotType;
     public var item:ItemUser;
     public function SPacketSlotUpdate() {
     }
 
     override public function readPacketData(buf:ByteArray): void{
 
-        slot = buf.readInt();
+        slot = SlotType.getSlot(buf.readInt());
         var isItem = buf.readBoolean();
 
         if(isItem){
@@ -31,15 +31,16 @@ public class SPacketSlotUpdate extends Packet{
             var amount:int = buf.readInt();
             var act:int = buf.readByte();
             var slotItem:SlotType =SlotType.getSlot(buf.readByte());
+
             var action:ItemAction = ItemAction.takeOff;
 
-            item = new ItemUser(id,name,img,amount,action,slotItem);
+            item = new ItemUser(id,name,img,amount,action,slot);
         }
     }
 
     override public function processPacket(handler: Game): void{
 
-       handler.slots.updateSlot(slot,item);
+       handler.slots.updateSlot(slot.id-13,item);
 
       //  handler.player.bodyItems = items;
         //handler.player.drawBodyItems();

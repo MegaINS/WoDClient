@@ -33,7 +33,7 @@ public class SPacketSlots extends Packet{
             var slotItem:SlotType =SlotType.getSlot(buf.readByte());
             var action:ItemAction = ItemAction.takeOff;
 
-            items[slot] = new ItemUser(id,name,img,amount,action,slotItem);
+            items[slot-1] = new ItemUser(id,name,img,amount,action,SlotType.getSlot(slot+12));
         }
     }
 
