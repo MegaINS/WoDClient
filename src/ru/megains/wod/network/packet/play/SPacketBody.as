@@ -12,6 +12,7 @@ import ru.megains.wod.Main;
 import ru.megains.wod.SlotType;
 
 import ru.megains.wod.item.ItemAction;
+import ru.megains.wod.item.ItemParam;
 import ru.megains.wod.item.ItemUser;
 
 import ru.megains.wod.network.packet.Packet;
@@ -38,12 +39,21 @@ public class SPacketBody extends Packet{
             var id:int = buf.readInt();
             var name:String = buf.readUTF();
             var img:String = buf.readUTF();
+            var size:int =  buf.readInt();
+            var params:Dictionary = new Dictionary();
+            for(var k = 0;k<size; k++){
+
+
+                var param:ItemParam = ItemParam.get(buf.readInt());
+                var value:int =  buf.readInt();
+                params[param] = value
+            }
             var amount:int = buf.readInt();
             var act:int = buf.readByte();
             var slotItem:SlotType =SlotType.getSlot(buf.readByte());
             var action:ItemAction = ItemAction.takeOff;
 
-            items[slot] = new ItemUser(id,name,img,amount,action,slotItem);
+            items[slot] = new ItemUser(id,name,img,amount,action,slotItem,params);
         }
     }
 

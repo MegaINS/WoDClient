@@ -13,9 +13,26 @@ public class Damage extends Sprite{
     var battle:Battle;
     var damage = new TextField();
 
-    public function Damage(battleIn:Battle,dam:int) {
+    public function Damage(battleIn:Battle,dam:int,typeAttack:TypeAttack) {
         battle = battleIn;
-        damage.text = Number(dam);
+         switch (typeAttack) {
+             case TypeAttack.block:
+                 damage.textColor = 0x0000FF;
+                 damage.text = "Block";
+                 break;
+             case TypeAttack.dodge:
+                 damage.textColor = 0x00FF00;
+                 damage.text = "Dodge";
+                 break;
+             case TypeAttack.crit:
+                 damage.textColor = 0xFF0000;
+             case TypeAttack.plain:
+                 damage.text = Number(dam);
+                 break;
+        }
+
+
+
         addChild(damage);
         addEventListener(Event.ENTER_FRAME, enterFrameHandler);
     }

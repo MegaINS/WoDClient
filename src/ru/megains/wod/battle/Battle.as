@@ -222,7 +222,7 @@ public class Battle extends Sprite {
         }
     }
 
-    public function setDamage(hit:int, id:int,teamIn:int):void {
+    public function setDamage(hit:int, id:int,teamIn:int,typeAttack:TypeAttack):void {
 
         if(teams==null) return;
 
@@ -230,13 +230,13 @@ public class Battle extends Sprite {
         teams[teamIn][id].updateHp(hit);
 
         if(player.id == id ){
-            var damage =new Damage(this,hit);
+            var damage =new Damage(this,hit,typeAttack);
             damage.y = 180;
             damage.x = 350;
             playerHp.text = player.hp+"/"+ player.hpMax;
             addChild(damage);
         }else if(target!=null && target.id == id){
-            var damage =new Damage(this,hit);
+            var damage =new Damage(this,hit,typeAttack);
             damage.y = 180;
             damage.x = 550;
             targetHp.text = target.hp+"/"+ target.hpMax;

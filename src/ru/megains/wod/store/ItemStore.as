@@ -37,6 +37,18 @@ public class ItemStore extends Sprite{
         itemName.x = 75;
         addChild(itemName);
 
+        var yy = 20;
+        for(var par in item.params ){
+            var itemParam:TextField = new TextField();
+            itemParam.text = par.name +"   "+ item.params[par];
+            itemParam.x = 75;
+            itemParam.y = yy;
+            addChild(itemParam);
+            yy+=15
+
+        }
+
+
 
         value.text ="1";
         value.type = TextFieldType.INPUT;

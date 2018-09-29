@@ -7,6 +7,7 @@ import flash.display.Sprite;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.text.TextField;
+import flash.utils.Dictionary;
 
 import ru.megains.wod.SlotType;
 
@@ -23,8 +24,8 @@ public class ItemUser extends Item{
     public var slot;
     public var active = false;
 
-    public function ItemUser(idIn:int, nameIn:String, imgIn:String, amountIn:int, actionIn:ItemAction,slotIn:SlotType) {
-        super(idIn,nameIn,imgIn);
+    public function ItemUser(idIn:int, nameIn:String, imgIn:String, amountIn:int, actionIn:ItemAction,slotIn:SlotType,paramsIn:Dictionary) {
+        super(idIn,nameIn,imgIn,paramsIn);
         amount=amountIn;
         action=actionIn;
         slot = slotIn;
