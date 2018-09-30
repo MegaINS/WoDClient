@@ -5,6 +5,7 @@ import flash.utils.Dictionary;
 
 import ru.megains.wod.item.Item;
 import ru.megains.wod.item.ItemAction;
+import ru.megains.wod.item.ItemUser;
 
 public class Slots extends Sprite {
 
@@ -40,7 +41,7 @@ public class Slots extends Sprite {
 
     }
 
-    public function updateSlot(slot:int, item:Item):void {
+    public function updateSlot(slot:int, item:ItemUser):void {
         if (item == null) {
             removeChild(items[slot]);
             items[slot] = null;
@@ -52,6 +53,17 @@ public class Slots extends Sprite {
         }
     }
 
+    public function updateSizeSlot(slot:int, value:int):void {
+        if (value == 0) {
+            removeChild(items[slot]);
+            items[slot] = null;
+        } else {
+
+            var item:ItemUser = items[slot];
+            item.amount = value;
+            item.amountText.text =String( item.amount);
+        }
+    }
     public function startBattle():void {
         for (var i:int = 0; i < 10; i++) {
             if (items[i] != null) {

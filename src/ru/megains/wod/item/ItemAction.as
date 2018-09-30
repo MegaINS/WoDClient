@@ -12,6 +12,7 @@ import ru.megains.wod.Game;
 import ru.megains.wod.Main;
 
 import ru.megains.wod.network.NetworkManager;
+import ru.megains.wod.network.packet.battle.CPacketSlotUse;
 import ru.megains.wod.network.packet.play.CPacketAction;
 
 public class ItemAction extends Sprite{
@@ -71,7 +72,7 @@ public class ItemAction extends Sprite{
         switch (id){
             case 0:
                 trace("click use "+event.target.id + " "+event.target.parent.slot);
-              Main.game.battle.network.sendPacket(new CPacketAction(Action.USE,event.target.parent.id));
+              Main.game.battle.network.sendPacket(new CPacketSlotUse(event.target.parent.slot));
                 break;
             case 1:
                 trace("click take "+event.target.id + " "+event.target.parent.slot);

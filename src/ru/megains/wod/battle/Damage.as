@@ -29,7 +29,13 @@ public class Damage extends Sprite{
              case TypeAttack.plain:
                  damage.text = Number(dam);
                  break;
+             case TypeAttack.heal:
+             case TypeAttack.maxHeal:
+                 damage.textColor = 0x00FF00;
+                 damage.text = Number(dam);
+                 break;
         }
+
 
 
 

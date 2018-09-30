@@ -49,8 +49,21 @@ public class EntityBattle extends Sprite{
 
     }
 
-    public function updateHp(hit:int):void {
-        hp += hit;
+    public function updateHp(hit:int,typeAttack:TypeAttack):void {
+
+        switch (typeAttack) {
+            case TypeAttack.block:
+            case TypeAttack.dodge:
+                break;
+            case TypeAttack.maxHeal:
+                hpMax += hit;
+            case TypeAttack.heal:
+            case TypeAttack.crit:
+            case TypeAttack.plain:
+                hp += hit;
+                break;
+        }
+
         entityHp.text = hp+"/"+ hpMax;
     }
 }

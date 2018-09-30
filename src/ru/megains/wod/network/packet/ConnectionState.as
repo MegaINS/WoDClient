@@ -81,7 +81,7 @@ public class ConnectionState {
         BATTLE.registerServerPacket(SPacketBattleDamage);
         BATTLE.registerServerPacket(SPacketBattleTarget);
         BATTLE.registerServerPacket(SPacketBattleEnd);
-
+        BATTLE.registerServerPacket(SPacketBattleSlotUpdate);
 
     }
 

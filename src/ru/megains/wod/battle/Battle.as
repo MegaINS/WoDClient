@@ -227,7 +227,7 @@ public class Battle extends Sprite {
         if(teams==null) return;
 
 
-        teams[teamIn][id].updateHp(hit);
+        teams[teamIn][id].updateHp(hit,typeAttack);
 
         if(player.id == id ){
             var damage =new Damage(this,hit,typeAttack);

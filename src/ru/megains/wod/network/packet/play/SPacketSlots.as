@@ -29,9 +29,9 @@ public class SPacketSlots extends Packet{
             var id:int = buf.readInt();
             var name:String = buf.readUTF();
             var img:String = buf.readUTF();
-            var size:int =  buf.readInt();
+            var sizePar:int =  buf.readInt();
             var params:Dictionary = new Dictionary();
-            for(var k = 0;k<size; k++){
+            for(var k = 0;k<sizePar; k++){
 
 
                 var param:ItemParam = ItemParam.get(buf.readInt());
